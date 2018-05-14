@@ -1,0 +1,33 @@
+{
+  "name": "profile-app",
+  "version": "1.0.0",
+  "description": "A social network for developer",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KabirMaan/profile-app.git"
+  },
+  "author": "Kabir Maan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KabirMaan/profile-app/issues"
+  },
+  "homepage": "https://github.com/KabirMaan/profile-app#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.2.1",
+    "mongoose": "^5.1.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "validator": "^10.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.4"
+  }
+}
