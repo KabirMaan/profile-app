@@ -108,7 +108,7 @@ const ProfileSchema = new Schema({
     instagram: {
       type: String
     },
-    instagram: {
+    linkedin: {
       type: String
     }
   },
