@@ -2,12 +2,14 @@ import axios from "axios";
 
 import {
   GET_PROFILE,
+  GET_PROFILES,
   GET_ERRORS,
   PROFILE_LOADING,
   CLEAR_CURRENT_PROFILE,
   SET_CURRENT_USER
 } from "./types";
 
+// Get current profile
 export const getCurrentProfile = () => dispatch => {
   dispatch(setProfileLoading());
 
@@ -22,6 +24,46 @@ export const getCurrentProfile = () => dispatch => {
     .catch(error =>
       dispatch({
         type: GET_PROFILE,
+        payload: {}
+      })
+    );
+};
+
+// Get profile by handle
+export const getProfileByHandle = handle => dispatch => {
+  dispatch(setProfileLoading());
+
+  axios
+    .get(`/api/profile/handle/${handle}`)
+    .then(res => {
+      dispatch({
+        type: GET_PROFILE,
+        payload: res.data
+      });
+    })
+    .catch(error =>
+      dispatch({
+        type: GET_PROFILE,
+        payload: null
+      })
+    );
+};
+
+// Get all profiles
+export const getProfiles = () => dispatch => {
+  dispatch(setProfileLoading());
+
+  axios
+    .get("/api/profile/all")
+    .then(res => {
+      dispatch({
+        type: GET_PROFILES,
+        payload: res.data
+      });
+    })
+    .catch(error =>
+      dispatch({
+        type: GET_PROFILES,
         payload: {}
       })
     );
@@ -84,7 +126,7 @@ export const deleteEducation = id => dispatch => {
     );
 };
 
-// Delete edication
+// Delete education
 export const deleteExperience = id => dispatch => {
   axios
     .delete(`/api/profile/experience/${id}`)
